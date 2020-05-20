@@ -2,5 +2,45 @@
 
 Directory structure for sample golang project development.
 
+There are several ways to use it.
 
+## Run debug mode directly
 
+```
+$ vi app.debug.json
+$ go run main.go bindata.go
+```
+
+## Deploy release mode directly
+
+```
+# Update setting
+$ cp app.mode.json.example app.release.json
+$ vi app.release.json
+
+# Build & distribute
+$ export GIN_MODE=release
+$ go-bindata -o bindata.go setting/ # bindata.go is load for release mode which will never be changed
+$ "go build && ./skeleton" OR "go run main.go bindata.go"
+
+# Optional
+$ scp skeleton xx@xx.xx.xx.xx:/dist/
+```
+
+## Deploy & Run release with docker locally
+
+```
+$ vi setting/app.release.json
+$ dkc -f docker-compose-from-src.yml up -d --build --force-recreate
+```
+
+## Deploy in CI/CD way (Github Actions)
+
+```
+# Update and push to release/prod branch trigger actions
+$ vi .github/workflows/go.yml
+
+# On remote server
+$ cd skeletonApi/dist
+$ dkc -f docker-compose-from-dist.yml up -d --build --force-recreate
+```

@@ -1,0 +1,13 @@
+{
+  "name": "skeleton App",
+  "server": {
+    "port": ":8090",
+    "appUrl": "http://localhost:8080",
+    "domainMain": "localhost:8080"
+  },
+  "database": {
+    "mysql": {
+      "dsn": "root:123456@(192.168.0.100:3306)/testdb?charset=utf8mb4&parseTime=True&loc=Local"
+    }
+  }
+}

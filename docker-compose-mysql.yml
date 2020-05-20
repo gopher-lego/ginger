@@ -1,0 +1,26 @@
+#
+# This DB is for development only.
+#
+# @maintainer <farwish@foxmail.com>
+#
+version: '3'
+
+services:
+  mysql:
+    image: mysql:${IMG_MYSQL_VERSION}
+    container_name: skeleton-db-con
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+    ports:
+      - ${HOST_MYSQL_PORT}:3306
+    restart: on-failure
+    networks:
+      - default_net
+
+
+networks:
+  default_net:
+    driver: bridge

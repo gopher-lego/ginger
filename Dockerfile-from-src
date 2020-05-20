@@ -1,0 +1,28 @@
+#
+# $ docker build -f Dockerfile -t skeleton .
+#
+# @maintainer <farwish@foxmail.com>
+#
+
+FROM golang:1.14.2
+
+# We need to set proxy on our server!
+RUN go env -w GO111MODULE=on
+RUN go env -w GOPROXY=https://goproxy.io,direct
+
+WORKDIR /go/src/app
+
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+RUN go build -o dist/skeleton -v .
+
+# Important to load right config
+RUN export GIN_MODE=release
+
+EXPOSE 8090
+
+ENTRYPOINT ["./dist/skeleton"]
+
+

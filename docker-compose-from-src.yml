@@ -1,0 +1,25 @@
+#
+# Note: this file only for build Image purpose.
+#       Dont push image to public docker hub.
+#
+# @maintainer <farwish@foxmail.com>
+#
+# $ dkc -f xxx.yml up -d --build --force-recreate
+#
+version: '3'
+
+services:
+  skeleton:
+    build:
+      context: ./
+      dockerfile: Dockerfile-from-src
+    container_name: skeleton-con
+    ports:
+      - 8090:8090
+    restart: on-failure
+    networks:
+      - default_net
+
+networks:
+  default_net:
+    driver: bridge

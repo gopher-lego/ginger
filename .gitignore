@@ -1,2 +1,9 @@
+.idea/
+.DS_Store
 
-.idea
+# Go build binary file
+skeleton
+
+# Docker .env file
+.env
+
