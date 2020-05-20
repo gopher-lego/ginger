@@ -17,8 +17,8 @@ func Set(e *gin.Engine) {
 	// Top routes prefix
 	top := e.Group("/api")
 
-	search := top.Group("/ping")
+	heartbeat := top.Group("/ping")
 	{
-		search.GET("/", api.Pong)
+		heartbeat.GET("/", api.Pong)
 	}
 }
