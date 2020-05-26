@@ -6,7 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 
-	"github.com/gopher-lego/skeleton/app/route"
+	"github.com/gopher-lego/skeleton/route"
+
 	"github.com/gopher-lego/skeleton/config"
 )
 
