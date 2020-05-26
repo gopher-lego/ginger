@@ -57,6 +57,8 @@ Support load setting/ value into build binary by Working with bindata.go
 
 Support production ready Docker environment out of box.
 
+Support migration in migrate.go
+
 ## Development workflow
 
 ```
