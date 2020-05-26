@@ -28,7 +28,9 @@ func main() {
 		}
 		// https://github.com/spf13/viper#reading-config-from-ioreader
 		AppConf.SetConfigType("json")
-		AppConf.ReadConfig(bytes.NewBuffer(bytesContent))
+		if err := AppConf.ReadConfig(bytes.NewBuffer(bytesContent)); err != nil {
+			panic("Something error:" + err.Error())
+		}
 
 	} else {
 

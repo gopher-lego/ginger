@@ -64,5 +64,6 @@ main.go ->
 route/api.go ->
 	app/http/xx.go ->
 	app/repository/xxxRepo.go <- app/model/xxx.go
+				  <- config/database.go
 ```
 
