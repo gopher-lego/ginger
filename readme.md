@@ -44,3 +44,25 @@ $ vi .github/workflows/go.yml
 $ cd skeletonApi/dist
 $ dkc -f docker-compose-from-dist.yml up -d --build --force-recreate
 ```
+
+## Preset features
+
+Support global CORS middleware.
+
+Support global Request Rate limit middleware.
+
+Support config set by Viper in config/
+
+Support load setting/ value into build binary by Working with bindata.go
+
+Support production ready Docker environment out of box.
+
+## Development workflow
+
+```
+main.go ->
+route/api.go ->
+	app/http/xx.go ->
+	app/repository/xxxRepo.go <- app/model/xxx.go
+```
+
