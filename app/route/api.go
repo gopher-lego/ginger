@@ -3,7 +3,7 @@ package route
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/gopher-lego/skeleton/app/api"
+	"github.com/gopher-lego/skeleton/app/http"
 	"github.com/gopher-lego/skeleton/app/middleware"
 )
 
@@ -19,6 +19,6 @@ func Set(e *gin.Engine) {
 
 	heartbeat := top.Group("/ping")
 	{
-		heartbeat.GET("/", api.Pong)
+		heartbeat.GET("/", http.Pong)
 	}
 }
