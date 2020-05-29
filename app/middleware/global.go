@@ -15,7 +15,22 @@ import (
 
 func CorsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		var allowOrigin string
+		allowOrigins := config.AppConf.Get("middleware.cors.allowOrigins").(string)
+
+		if strings.Contains(allowOrigins, "*") {
+			allowOrigin = "*"
+		} else {
+			origin := c.GetHeader("Origin")
+			if strings.Contains(allowOrigins, origin) {
+				allowOrigin = origin
+			}
+		}
+
+		if allowOrigin != "" {
+			c.Writer.Header().Set("Access-Control-Allow-Origin", allowOrigin)
+		}
+
 		c.Writer.Header().Set("Access-Control-Max-Age", "86400")
 		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS, POST, PUT, DELETE, UPDATE")
 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, Authorization")
