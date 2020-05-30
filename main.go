@@ -45,7 +45,7 @@ func main() {
 	}
 
 	// Assign config for outside using
-	config.Set(AppConf)
+	config.Global(AppConf)
 
 	// Framework engine
 	engine := gin.Default()

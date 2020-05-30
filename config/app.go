@@ -7,7 +7,7 @@ import (
 var AppConf *viper.Viper
 
 // Called in main.go, then config.AppConf.Get("xx") used in other go files
-func Set(v *viper.Viper) {
+func Global(v *viper.Viper) {
 	AppConf = v
 }
 
