@@ -11,6 +11,11 @@ func Set(v *viper.Viper) {
 	AppConf = v
 }
 
+// For easy use outside by config.Get('xx')
+func Get(key string) string {
+	return AppConf.Get(key).(string)
+}
+
 // Initial in main.go to bind setting in binary file !
 
 // func init() {
