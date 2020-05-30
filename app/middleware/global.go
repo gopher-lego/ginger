@@ -16,7 +16,7 @@ import (
 func CorsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var allowOrigin string
-		allowOrigins := config.AppConf.Get("middleware.cors.allowOrigins").(string)
+		allowOrigins := config.Get("middleware.cors.allowOrigins")
 
 		if strings.Contains(allowOrigins, "*") {
 			allowOrigin = "*"
