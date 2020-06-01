@@ -54,5 +54,8 @@ func main() {
 	route.Set(engine)
 
 	// Run
-	engine.Run(AppConf.Get("server.port").(string)) // listen and serve on 0.0.0.0:port
+	err := engine.Run(config.Get("server.port")) // listen and serve on 0.0.0.0:port
+	if err != nil {
+		panic(err.Error())
+	}
 }
