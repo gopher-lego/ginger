@@ -47,6 +47,9 @@ func main() {
 	// Assign config for outside using
 	config.Global(AppConf)
 
+	// Memory cache
+	config.NewFreeCache()
+
 	// Framework engine
 	engine := gin.Default()
 
