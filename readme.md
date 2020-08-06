@@ -8,7 +8,8 @@ There are several ways to use it.
 
 ```
 $ vi app.debug.json
-$ go run main.go bindata.go
+$ go-bindata -o bindata.go setting/
+$ go run main.go bindata.go    # To avoid syntaxx error only. (bindata.go only used in release mode)
 ```
 
 ## Deploy release mode directly
