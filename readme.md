@@ -19,7 +19,7 @@ $ cp app.mode.json.example app.release.json
 $ vi app.release.json
 
 # Build & distribute
-$ go-bindata -o bindata.go setting/ # bindata.go is load for release mode which will never be changed
+$ go-bindata -o bindata.go setting/ # generate bindata.go that is load for release mode which will never be changed
 $ export GIN_MODE=release
 $ "go build && ./skeleton" OR "go run main.go bindata.go"
 

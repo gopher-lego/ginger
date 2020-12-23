@@ -14,7 +14,7 @@ WORKDIR /go/src/app
 
 COPY . .
 
-# Build binary from Github Actions
+# Build binary from Github Actions, So we not build here any more
 #RUN go get -d -v ./...
 #RUN go install -v ./...
 #RUN go build -o dist/skeleton -v .
