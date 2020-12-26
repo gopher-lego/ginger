@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/gopher-lego/skeleton/config"
+	"github.com/spf13/viper"
 	"net/http"
 	"strings"
 	"time"
@@ -18,7 +18,7 @@ import (
 func CorsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var allowOrigin string
-		allowOrigins := config.Get("middleware.cors.allowOrigins")
+		allowOrigins := viper.GetString("middleware.cors.allowOrigins")
 
 		if strings.Contains(allowOrigins, "*") {
 			allowOrigin = "*"

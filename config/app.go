@@ -1,31 +1,20 @@
 package config
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
 
-var AppConf *viper.Viper
+// Initial in main.go to bind setting in binary file with different method !
 
-// Called in main.go, then config.AppConf.Get("xx") used in other go files
-func Global(v *viper.Viper) {
-	AppConf = v
+func InitConf() {
+	// File name without extension
+	filenameWithoutExt := "app." + gin.Mode()
+
+	viper.SetConfigName(filenameWithoutExt)
+	viper.SetConfigType("json")
+	viper.AddConfigPath("./setting") // Project dir
+	if err := viper.ReadInConfig(); err != nil {
+		panic("Using config file:" + viper.ConfigFileUsed())
+	}
 }
-
-// For easy use outside by config.Get('xx')
-func Get(key string) string {
-	return AppConf.Get(key).(string)
-}
-
-// Initial in main.go to bind setting in binary file !
-
-// func init() {
-// 	// File name without extension
-// 	filenameWithoutExt := "app.debug"
-//
-// 	AppConf.SetConfigName(filenameWithoutExt)
-// 	AppConf.SetConfigType("json")
-// 	AppConf.AddConfigPath("./setting") // Project dir
-// 	if err := AppConf.ReadInConfig(); err != nil {
-// 		panic("Using config file:" + AppConf.ConfigFileUsed())
-// 	}
-// }
