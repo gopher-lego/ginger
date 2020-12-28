@@ -1,5 +1,5 @@
 {
-  "name": "skeleton App",
+  "name": "gopher-lego/skeleton App",
   "server": {
     "port": ":8090",
     "appUrl": "http://localhost:8080",

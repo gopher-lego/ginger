@@ -7,13 +7,15 @@ import (
 
 // Initial in main.go to bind setting in binary file with different method !
 
-func InitConf() {
+// Path can be relative or absolute.
+func InitConf(path string) {
 	// File name without extension
 	filenameWithoutExt := "app." + gin.Mode()
 
+	// viper.New usage is for multi instance case
 	viper.SetConfigName(filenameWithoutExt)
 	viper.SetConfigType("json")
-	viper.AddConfigPath("./setting") // Project dir
+	viper.AddConfigPath(path)
 	if err := viper.ReadInConfig(); err != nil {
 		panic("Using config file:" + viper.ConfigFileUsed())
 	}

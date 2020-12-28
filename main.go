@@ -8,8 +8,6 @@ import (
 	"github.com/gopher-lego/skeleton/config"
 )
 
-//var AppConf = viper.New()
-
 /**
  * curl -X GET -d "s=a"  http://localhost:8090/api/ping
  */
@@ -29,25 +27,12 @@ func main() {
 	//		panic("Something error:" + err.Error())
 	//	}
 	//
-	//} else {
-	//
-	//	filenameWithoutExt := "app." + gin.Mode()
-	//	AppConf.SetConfigName(filenameWithoutExt)
-	//	AppConf.SetConfigType("json")
-	//	AppConf.AddConfigPath("./setting")
-	//	if err := AppConf.ReadInConfig(); err != nil {
-	//		panic("Using config file:" + AppConf.ConfigFileUsed())
-	//	}
-	//
 	//}
 
-	config.InitConf()
+	config.InitConf("./setting")
 
 	// Memory cache
 	config.NewFreeCache()
-
-	//// Assign config for outside using
-	//config.Global(AppConf)
 
 	// Framework engine
 	engine := gin.Default()
