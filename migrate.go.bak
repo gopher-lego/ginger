@@ -3,8 +3,8 @@ package main
 import (
 	"bytes"
 	"github.com/gin-gonic/gin"
-	// "github.com/gopher-lego/skeleton/app/model"
-	"github.com/gopher-lego/skeleton/config"
+	// "github.com/gopher-lego/ginger/app/model"
+	"github.com/gopher-lego/ginger/config"
 	"github.com/jinzhu/gorm"
 	"github.com/spf13/viper"
 )

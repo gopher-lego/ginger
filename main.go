@@ -3,11 +3,11 @@ package main
 import (
 	"bytes"
 	"github.com/gin-gonic/gin"
-	"github.com/gopher-lego/skeleton/route"
+	"github.com/gopher-lego/ginger/route"
 	"github.com/spf13/viper"
 	"os"
 
-	"github.com/gopher-lego/skeleton/config"
+	"github.com/gopher-lego/ginger/config"
 )
 
 /**

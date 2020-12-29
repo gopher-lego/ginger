@@ -1,5 +1,5 @@
 #
-# $ docker build -f Dockerfile -t skeleton .
+# $ docker build -f Dockerfile -t ginger .
 #
 # @maintainer <farwish@foxmail.com>
 #
@@ -17,7 +17,7 @@ COPY . .
 # Build binary from Github Actions, So we not build here any more
 #RUN go get -d -v ./...
 #RUN go install -v ./...
-#RUN go build -o dist/skeleton -v .
+#RUN go build -o dist/ginger -v .
 
 EXPOSE 8090
 
@@ -25,6 +25,6 @@ EXPOSE 8090
 ENV GIN_MODE="release"
 RUN echo $GIN_MODE
 
-ENTRYPOINT ["./dist/skeleton"]
+ENTRYPOINT ["./dist/ginger"]
 
 

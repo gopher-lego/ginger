@@ -1,5 +1,5 @@
 #
-# $ docker build -f Dockerfile -t skeleton .
+# $ docker build -f Dockerfile -t ginger .
 #
 # @maintainer <farwish@foxmail.com>
 #
@@ -17,13 +17,13 @@ COPY . .
 # Build binary by ourselves, So we not depend on other workflow
 RUN go get -d -v ./...
 RUN go install -v ./...
-RUN go build -o dist/skeleton -v .
+RUN go build -o dist/ginger -v .
 
 # Important to load right config
 RUN export GIN_MODE=release
 
 EXPOSE 8090
 
-ENTRYPOINT ["./dist/skeleton"]
+ENTRYPOINT ["./dist/ginger"]
 
 

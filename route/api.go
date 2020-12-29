@@ -3,8 +3,8 @@ package route
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/gopher-lego/skeleton/app/http"
-	"github.com/gopher-lego/skeleton/app/middleware"
+	"github.com/gopher-lego/ginger/app/http"
+	"github.com/gopher-lego/ginger/app/middleware"
 )
 
 var corsMiddleware = middleware.CorsMiddleware()

@@ -8,7 +8,7 @@ version: '3'
 services:
   mysql:
     image: mysql:${IMG_MYSQL_VERSION}
-    container_name: skeleton-db-con
+    container_name: ginger-db-con
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}

@@ -1,4 +1,4 @@
-module github.com/gopher-lego/skeleton
+module github.com/gopher-lego/ginger
 
 go 1.13
 

@@ -2,7 +2,7 @@ package repository
 
 import (
 	"fmt"
-	"github.com/gopher-lego/skeleton/config"
+	"github.com/gopher-lego/ginger/config"
 	"os"
 	"testing"
 )

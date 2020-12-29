@@ -1,4 +1,4 @@
-# skeleton 
+# ginger 
 
 Directory structure for sample golang project development.
 
@@ -21,10 +21,10 @@ $ vi app.release.json
 # Build & distribute
 $ go-bindata -o bindata.go setting/ # generate bindata.go that is load for release mode which will never be changed
 $ export GIN_MODE=release
-$ "go build && ./skeleton" OR "go run main.go bindata.go"
+$ "go build && ./ginger" OR "go run main.go bindata.go"
 
 # Optional
-$ scp skeleton xx@xx.xx.xx.xx:/dist/
+$ scp ginger xx@xx.xx.xx.xx:/dist/
 ```
 
 ## Deploy & Run release with docker locally
@@ -41,7 +41,7 @@ $ dkc -f docker-compose-from-src.yml up -d --build --force-recreate
 $ vi .github/workflows/go.yml
 
 # On remote server
-$ cd skeletonApi/dist
+$ cd gingerApi/dist
 $ dkc -f docker-compose-from-dist.yml up -d --build --force-recreate
 ```
 

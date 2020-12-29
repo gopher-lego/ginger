@@ -9,12 +9,12 @@
 version: '3'
 
 services:
-  skeleton:
+  ginger:
     build:
       context: ./
       dockerfile: Dockerfile-from-dist
-    image: skeleton:latest
-    container_name: skeleton-con
+    image: ginger:latest
+    container_name: ginger-con
     ports:
       - 8090:8090
     restart: on-failure
