@@ -1,7 +1,6 @@
-package repository
+package http
 
 import (
-	"fmt"
 	"github.com/gopher-lego/skeleton/config"
 	"os"
 	"testing"
@@ -12,7 +11,5 @@ func init()  {
 	config.InitConf(pwd + "/../../setting")
 }
 
-// cd ./app/repository && go test
-func TestDemoRepo(t *testing.T) {
-	fmt.Println(DemoRepo())
+func TestPong(t *testing.T) {
 }
