@@ -1,8 +1,11 @@
 package repository
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 // cd ./app/repository && go test
 func TestDemoRepo(t *testing.T) {
-	DemoRepo()
+	fmt.Println(DemoRepo())
 }

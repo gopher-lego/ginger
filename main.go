@@ -1,35 +1,30 @@
 package main
 
 import (
+	"bytes"
 	"github.com/gin-gonic/gin"
 	"github.com/gopher-lego/skeleton/route"
 	"github.com/spf13/viper"
+	"os"
 
 	"github.com/gopher-lego/skeleton/config"
 )
 
 /**
- * curl -X GET -d "s=a"  http://localhost:8090/api/ping
+ * $ go run main.go bindata.go
+ * $ curl -X GET -d "s=a"  http://localhost:8090/api/ping
  */
 func main() {
+	pwd, _ := os.Getwd()
+	settingPath := pwd + "/setting"
 
-	//if gin.Mode() == gin.ReleaseMode {
-	//
-	//	// https://github.com/go-bindata/go-bindata#accessing-an-asset
-	//	filename := "setting/app." + gin.Mode() + ".json"
-	//	bytesContent, err := Asset(filename)
-	//	if err != nil {
-	//		panic("Asset() can not found setting file")
-	//	}
-	//	// https://github.com/spf13/viper#reading-config-from-ioreader
-	//	AppConf.SetConfigType("json")
-	//	if err := AppConf.ReadConfig(bytes.NewBuffer(bytesContent)); err != nil {
-	//		panic("Something error:" + err.Error())
-	//	}
-	//
-	//}
-
-	config.InitConf("./setting")
+	// Load configure file
+	if gin.Mode() == gin.ReleaseMode {
+		InitConfAsset(settingPath)
+	} else {
+		// Debug or Test mode
+		config.InitConf(settingPath)
+	}
 
 	// Memory cache
 	config.NewFreeCache()
@@ -44,5 +39,19 @@ func main() {
 	err := engine.Run(viper.GetString("server.port")) // listen and serve on 0.0.0.0:port
 	if err != nil {
 		panic(err.Error())
+	}
+}
+
+func InitConfAsset(confPath string) {
+	// https://github.com/go-bindata/go-bindata#accessing-an-asset
+	filename := "app." + gin.Mode() + ".json"
+	bytesContent, err := Asset(confPath + "/" + filename)
+	if err != nil {
+		panic("Asset() can not found setting file")
+	}
+	// https://github.com/spf13/viper#reading-config-from-ioreader
+	viper.SetConfigType("json")
+	if err := viper.ReadConfig(bytes.NewBuffer(bytesContent)); err != nil {
+		panic("viper.ReadConfig something error:" + err.Error())
 	}
 }

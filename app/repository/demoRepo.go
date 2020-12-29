@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"fmt"
 	"github.com/gopher-lego/skeleton/config"
 	"github.com/spf13/viper"
 	"os"
@@ -12,6 +11,6 @@ func init()  {
 	config.InitConf(pwd + "/../../setting")
 }
 
-func DemoRepo() {
-	fmt.Println(viper.Get("name"), "::DemoRepo")
+func DemoRepo() string {
+	return "DemoRepo::" + viper.GetString("name")
 }
