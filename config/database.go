@@ -23,6 +23,7 @@ func MySqlInit() *gorm.DB {
 	// db.DB().SetConnMaxLifetime(time.Minute)
 }
 
+// https://gorm.io/zh_CN/docs/connecting_to_the_database.html
 func mySqlConnect() *gorm.DB {
 	dsn := viper.GetString("database.mysql.dsn")
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
