@@ -64,7 +64,8 @@ Support migration in migrate.go
 ```
 main.go ->
 route/api.go ->
-	app/http/xx.go ->
+	app/http/xx.go
+	app/request/xxxParams.go
 	app/repository/xxxRepo.go <- app/model/xxx.go
 				  <- config/database.go
 ```
