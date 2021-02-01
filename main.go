@@ -20,7 +20,7 @@ func main() {
 
 	// Load configure file
 	if gin.Mode() == gin.ReleaseMode {
-		InitConfAsset(settingPath)
+		InitConfAsset()
 	} else {
 		// Debug or Test mode
 		config.InitConf(settingPath)
@@ -28,6 +28,9 @@ func main() {
 
 	// Memory cache
 	config.NewFreeCache()
+
+	// simple single-node memory cache
+	config.NewGoCache()
 
 	// Framework engine
 	engine := gin.Default()
@@ -42,10 +45,10 @@ func main() {
 	}
 }
 
-func InitConfAsset(confPath string) {
+func InitConfAsset() {
 	// https://github.com/go-bindata/go-bindata#accessing-an-asset
-	filename := "app." + gin.Mode() + ".json"
-	bytesContent, err := Asset(confPath + "/" + filename)
+	filename := "setting/app." + gin.Mode() + ".json"
+	bytesContent, err := Asset(filename)
 	if err != nil {
 		panic("Asset() can not found setting file")
 	}
