@@ -15,14 +15,13 @@ import (
  * $ curl -X GET -d "s=a"  http://localhost:8090/api/ping
  */
 func main() {
-	pwd, _ := os.Getwd()
-	settingPath := pwd + "/setting"
-
 	// Load configure file
 	if gin.Mode() == gin.ReleaseMode {
 		InitConfAsset()
 	} else {
 		// Debug or Test mode
+		pwd, _ := os.Getwd()
+		settingPath := pwd + "/setting"
 		config.InitConf(settingPath)
 	}
 
@@ -45,6 +44,7 @@ func main() {
 	}
 }
 
+// File path will not change
 func InitConfAsset() {
 	// https://github.com/go-bindata/go-bindata#accessing-an-asset
 	filename := "setting/app." + gin.Mode() + ".json"
