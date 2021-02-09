@@ -25,6 +25,8 @@ func main() {
 		config.InitConf(settingPath)
 	}
 
+	// config.MySqlInit()
+
 	// Memory cache
 	config.NewFreeCache()
 

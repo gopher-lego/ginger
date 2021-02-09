@@ -19,6 +19,6 @@ func Set(e *gin.Engine) {
 
 	heartbeat := top.Group("/ping")
 	{
-		heartbeat.GET("/", http.Pong)
+		heartbeat.GET("", http.Pong)
 	}
 }
