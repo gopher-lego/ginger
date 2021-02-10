@@ -16,7 +16,10 @@ func DataGoCacheApply(key string, data interface{}) {
 }
 
 func UriFilterExcludeQueryString(uri string) string {
-	URL, _ := url.Parse(uri)
+	URL, err := url.Parse(uri); if err != nil {
+		// Parse failure is Invalid
+		return ""
+	}
 
 	if URL.RawQuery != "" {
 		uri = strings.ReplaceAll(uri, URL.RawQuery, "")
