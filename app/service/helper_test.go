@@ -23,3 +23,15 @@ func TestUriFilterExcludeQueryString(t *testing.T) {
 		assert.Equal(t, "http://www.example.com", cleanUri)
 	}
 }
+
+func TestRightPageNumber(t *testing.T) {
+	var pageNumberMax = 100
+
+	assert.Equal(t, 1, RightPageNumber(-1, pageNumberMax))
+	assert.Equal(t, 1, RightPageNumber(0, pageNumberMax))
+
+	assert.Equal(t, 2, RightPageNumber(2, pageNumberMax))
+	assert.Equal(t, 20, RightPageNumber(20, pageNumberMax))
+
+	assert.Equal(t, 100, RightPageNumber(200, pageNumberMax))
+}

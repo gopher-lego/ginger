@@ -2,6 +2,8 @@ package service
 
 import (
 	"github.com/gopher-lego/ginger/config"
+	"github.com/spf13/cast"
+	"math"
 	"net/url"
 	"strings"
 	"time"
@@ -28,4 +30,13 @@ func UriFilterExcludeQueryString(uri string) string {
 	uri = strings.TrimRight(uri, "?")
 
 	return strings.TrimRight(uri, "/")
+}
+
+func RightPageNumber(pageNumber int, pageNumberMax int) int {
+	var page float64
+
+	page = math.Max(1, cast.ToFloat64(pageNumber))
+	page = math.Min(cast.ToFloat64(pageNumberMax), page)
+
+	return cast.ToInt(page)
 }
