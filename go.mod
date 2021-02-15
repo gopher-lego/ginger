@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/coocood/freecache v1.1.1
 	github.com/gin-gonic/gin v1.6.3
+	github.com/go-ego/gse v0.65.1
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/gopher-lego/response v0.0.0-20200808213549-9544957b9cae

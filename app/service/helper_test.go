@@ -35,3 +35,9 @@ func TestRightPageNumber(t *testing.T) {
 
 	assert.Equal(t, 100, RightPageNumber(200, pageNumberMax))
 }
+
+func TestSegmentCutSearchMode(t *testing.T) {
+	seg := SegmentCutSearchMode("釜山行")
+	assert.Equal(t, seg[0], "釜山")
+	assert.Equal(t, seg[1], "行")
+}
