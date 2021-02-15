@@ -19,10 +19,11 @@ RUN go get -d -v ./...
 RUN go install -v ./...
 RUN go build -o dist/ginger -v .
 
-# Important to load right config
-RUN export GIN_MODE=release
-
 EXPOSE 8090
+
+# Important to load right config
+ENV GIN_MODE="release"
+RUN echo $GIN_MODE
 
 ENTRYPOINT ["./dist/ginger"]
 

@@ -13,6 +13,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile-from-src
+    image: ginger:latest
     container_name: ginger-con
     ports:
       - 8090:8090
