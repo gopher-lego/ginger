@@ -49,15 +49,15 @@ $ dkc -f docker-compose-from-dist.yml up -d --build --force-recreate
 
 Support global CORS middleware.
 
-Support global Request Rate limit middleware.
+Support global Request Rate limit middleware by [limiter](https://github.com/ulule/limiter).
 
-Support config set by Viper in config/
+Support config set by [Viper](https://github.com/spf13/viper) in config/
 
-Support load setting/ value into build binary by Working with bindata.go
+Support load setting/ value into build binary by Working with [bindata.go](https://github.com/go-bindata/go-bindata)
 
 Support production ready Docker environment out of box.
 
-Support migration in migrate.go
+Support database/migrations with [golang-migration](https://github.com/golang-migrate/migrate)
 
 ## Development workflow
 
