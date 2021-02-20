@@ -65,8 +65,8 @@ Support database/migrations with [golang-migration](https://github.com/golang-mi
 main.go ->
 route/api.go ->
 	app/http/xx.go
-	app/request/xxxParams.go
-	app/repository/xxxRepo.go <- app/model/xxx.go
+	app/param/xxx_param.go
+	app/repository/xxx_repo.go <- app/model/xxx.go
 				  <- config/database.go
 ```
 
