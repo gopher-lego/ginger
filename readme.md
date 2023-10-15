@@ -11,6 +11,12 @@ $ vi app.debug.json
 $ go run main.go bindata.go    # To avoid syntaxx error only. (bindata.go only used in release mode)
 ```
 
+## Run debug mode with live reload
+
+Think about this tool ↓
+1) install air: https://github.com/cosmtrek/air#via-go-install
+2) faq: https://github.com/cosmtrek/air#command-not-found-air-or-no-such-file-or-directory
+
 ## Deploy release mode directly
 
 ```
@@ -65,9 +71,9 @@ Support database/migrations with [golang-migration](https://github.com/golang-mi
 main.go ->
 route/api.go ->
 	app/http/xx.go
-	app/param/xxx_param.go
+	app/request/xxx_request.go
 	app/repository/xxx_repo.go <- app/model/xxx.go
-				  <- config/database.go
+				   <- config/database.go
 ```
 
 ## Derived projects
