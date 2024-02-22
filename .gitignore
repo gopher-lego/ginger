@@ -7,3 +7,5 @@ ginger
 # Docker .env file
 .env
 
+# SQLite db file
+*.db

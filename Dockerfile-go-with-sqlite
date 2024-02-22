@@ -1,0 +1,23 @@
+#
+# BUILD:
+# $ docker build -f Dockerfile-go-with-sqlite -t go-with-sqlite:latest .
+#
+# USE:
+# $ docker run -v /local/path/app:/go/app -it <IMAGE> bash 
+# $ go run xxx.go
+#
+# @maintainer <farwish@foxmail.com>
+#
+
+FROM golang:1.14.2
+
+# We need to set proxy on our server!
+RUN go env -w GO111MODULE=on
+RUN go env -w GOPROXY=https://goproxy.io,direct
+
+WORKDIR /go/
+
+# Install sqlite3 and gcc tools.
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y sqlite3 libsqlite3-dev build-essential 

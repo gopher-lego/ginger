@@ -76,7 +76,7 @@ route/api.go ->
 				   <- config/database.go
 ```
 
-## Derived projects
+## Derived projects example
 
 [accountserve-go](https://github.com/farwish/accountserve-go)
 
