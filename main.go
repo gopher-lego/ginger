@@ -1,11 +1,12 @@
 package main
 
 import (
-	"bytes"
+	_ "embed"
+	"os"
+
 	"github.com/gin-gonic/gin"
 	"github.com/gopher-lego/ginger/route"
 	"github.com/spf13/viper"
-	"os"
 
 	"github.com/gopher-lego/ginger/config"
 )
@@ -16,14 +17,7 @@ import (
  */
 func main() {
 	// Load configure file
-	if gin.Mode() == gin.ReleaseMode {
-		InitConfAsset()
-	} else {
-		// Debug or Test mode
-		pwd, _ := os.Getwd()
-		settingPath := pwd + "/setting"
-		config.InitConf(settingPath)
-	}
+	config.InitConfAsset(mainPath, bytesContent)
 
 	// config.MySqlInit()
 
@@ -46,17 +40,10 @@ func main() {
 	}
 }
 
-// File path will not change
-func InitConfAsset() {
-	// https://github.com/go-bindata/go-bindata#accessing-an-asset
-	filename := "setting/app." + gin.Mode() + ".json"
-	bytesContent, err := Asset(filename)
-	if err != nil {
-		panic("Asset() can not found setting file")
-	}
-	// https://github.com/spf13/viper#reading-config-from-ioreader
-	viper.SetConfigType("json")
-	if err := viper.ReadConfig(bytes.NewBuffer(bytesContent)); err != nil {
-		panic("viper.ReadConfig something error:" + err.Error())
-	}
-}
+var mainPath = func() string {
+	pwd, _ := os.Getwd()
+	return pwd
+}()
+
+//go:embed setting/app.release.json
+var bytesContent []byte

@@ -4,7 +4,7 @@
 # @maintainer <farwish@foxmail.com>
 #
 
-FROM golang:1.14.2
+FROM golang:1.22.2
 
 # We need to set proxy on our server!
 RUN go env -w GO111MODULE=on

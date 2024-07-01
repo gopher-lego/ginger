@@ -8,7 +8,7 @@ There are several ways to use it.
 
 ```
 $ vi app.debug.json
-$ go run main.go bindata.go    # To avoid syntaxx error only. (bindata.go only used in release mode)
+$ go run main.go
 ```
 
 ## Run debug mode with live reload
@@ -25,9 +25,8 @@ $ cp app.mode.json.example app.release.json
 $ vi app.release.json
 
 # Build & distribute
-$ go-bindata -o bindata.go setting/ # generate bindata.go that is load for release mode which will never be changed
 $ export GIN_MODE=release
-$ "go build && ./ginger" OR "go run main.go bindata.go"
+$ "go build && ./ginger" OR "go run main.go"
 
 # Optional
 $ scp ginger xx@xx.xx.xx.xx:/dist/
@@ -58,8 +57,6 @@ Support global CORS middleware.
 Support global Request Rate limit middleware by [limiter](https://github.com/ulule/limiter).
 
 Support config set by [Viper](https://github.com/spf13/viper) in config/
-
-Support load setting/ value into build binary by Working with [bindata.go](https://github.com/go-bindata/go-bindata)
 
 Support production ready Docker environment out of box.
 
